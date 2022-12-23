@@ -1,8 +1,13 @@
-import * as prismic from '@prismicio/client';
+import * as Prismic from '@prismicio/client';
 
 // Fill in your repository name
-export const repositoryName = 'spiritnews';
+export function getPrismicClient() {
+  const prismic = Prismic.createClient(process.env.PRISMIC_ENDPOINT, {
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+  });
+  return prismic;
+}
 
-export const client = prismic.createClient(repositoryName, {
+export const client = Prismic.createClient(process.env.PRISMIC_ENDPOINT, {
   accessToken: process.env.PRISMIC_ACCESS_TOKEN,
 });
