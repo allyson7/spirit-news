@@ -1,13 +1,9 @@
 import Head from 'next/head';
 import * as prismicH from '@prismicio/helpers';
+import Link from 'next/link';
 
 import { getPrismicClient } from '../../services/prismic';
 import styles from './styles.module.scss';
-import {
-  useFirstPrismicDocument,
-  usePrismicDocumentByUID,
-} from '@prismicio/react';
-import Link from 'next/link';
 
 type Post = {
   slug: string;
