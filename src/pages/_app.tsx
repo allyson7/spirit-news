@@ -14,11 +14,11 @@ export default function App({
   const client = getPrismicClient();
 
   return (
-    <PrismicProvider client={client}>
-      <SessionProvider session={session}>
+    <SessionProvider session={session}>
+      <PrismicProvider client={client}>
         <Header />
         <Component {...pageProps} />
-      </SessionProvider>
-    </PrismicProvider>
+      </PrismicProvider>
+    </SessionProvider>
   );
 }

@@ -19,9 +19,9 @@ export const authOptions = {
     // ...add more providers here
   ],
   callbacks: {
-    async session(session) {
+    async session({ session }) {
       try {
-        const userActiveSubscription = await fauna.query(
+        const userActiveSubscription = await fauna.query<string>(
           q.Get(
             q.Intersection([
               q.Match(
@@ -65,7 +65,7 @@ export const authOptions = {
             ),
             q.Create(q.Collection('users'), { data: { email } }),
             q.Get(
-              // SElect
+              // Select
               q.Match(q.Index('user_by_email'), q.Casefold(user.email))
             )
           )
